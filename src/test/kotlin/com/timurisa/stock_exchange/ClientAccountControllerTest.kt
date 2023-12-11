@@ -1,5 +1,8 @@
 package com.timurisa.stock_exchange
 
+import com.timurisa.stock_exchange.controller.ClientAccountController
+import com.timurisa.stock_exchange.domain.ClientAccountBuilder
+import com.timurisa.stock_exchange.service.ClientAccountService
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test

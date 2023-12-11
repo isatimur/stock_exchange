@@ -1,6 +1,9 @@
 package com.timurisa.stock_exchange
 
-import io.mockk.every
+import com.timurisa.stock_exchange.domain.ClientAccount
+import com.timurisa.stock_exchange.repository.ClientAccountRepository
+import com.timurisa.stock_exchange.service.ClientAccountContext
+import com.timurisa.stock_exchange.service.ClientAccountService
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
@@ -35,6 +38,7 @@ class ClientAccountServiceTest {
             residenceAddress = "Somewhere"
         )
     }
+
     @Test
     fun `should validate and create account when given valid account and source`() {
         val clientAccount = createTestClientAccount() // Use of extracted function

@@ -1,5 +1,7 @@
 package com.timurisa.stock_exchange
 
+import com.timurisa.stock_exchange.domain.ClientAccountBuilder
+import com.timurisa.stock_exchange.service.MailValidationStrategy
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 
