@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  stock-exchange-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - R2DB_URL=r2dbc:postgresql://db:5432/stockexchange
+      - DB_URL=jdbc:postgresql://db:5432/stockexchange
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=secret
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16.1
+    environment:
+      POSTGRES_DB: stockexchange
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
